@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginStart="8dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginEnd="8dp"
+    android:background="@color/cardview_dark_background"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    app:layout_constraintTop_toBottomOf="@+id/cityList">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context=".fragment.CityTempratureDetailsFragment">
+
+    <TextView
+        android:id="@+id/textview_second"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/button_second"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button_second"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/previous"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textview_second" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_100sdp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:cardCornerRadius="@dimen/_5sdp"
+        app:cardBackgroundColor="@color/transparent"
+        app:contentPadding="@dimen/_5sdp"
+        app:cardElevation="@dimen/_2sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/tempContainer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" >
+
+        <include layout="@layout/place_layout"></include>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/cityList"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_5sdp"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:spanCount="5"
+        app:layout_constraintTop_toBottomOf="@+id/tempContainer"
+        tools:listitem="@layout/fiveday_layout" />
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/detailsContainer"
+            android:visibility="visible"
+            app:layout_constraintTop_toBottomOf="@+id/cityList"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:orientation="vertical">
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textColor="@color/white"
+    android:layout_margin="@dimen/_2sdp"
+    android:textSize="@dimen/_12ssp"
+    android:textStyle="bold"
+    android:text="Toady's Weather"
+    ></TextView>
+            <include
+                android:id="@+id/forcast"
+                layout="@layout/forecast_info_layout"
+                android:layout_margin="@dimen/_2sdp"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"></include>
+
+            <include
+                android:id="@+id/temperature"
+                android:layout_margin="@dimen/_2sdp"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                layout="@layout/forecast_info_layout"></include>
+
+            <include
+                android:id="@+id/humidity"
+                android:layout_margin="@dimen/_2sdp"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                layout="@layout/forecast_info_layout"></include>
+
+            <include
+                android:id="@+id/rain"
+                android:layout_margin="@dimen/_2sdp"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                layout="@layout/forecast_info_layout"></include>
+
+            <include
+                android:id="@+id/wind"
+                android:layout_margin="@dimen/_2sdp"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                layout="@layout/forecast_info_layout"></include>
+        </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>
